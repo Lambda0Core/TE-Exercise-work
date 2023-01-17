@@ -29,6 +29,8 @@ public class main {
         // 6. Write a method to read the value of an integer m and display the value of n is 1
         //      when m is larger than 0, 0 when m is 0 and -1 when m is less than 0.
 
+        // *************  Fibonacci Sequence *********************** //
+
         /*
 	    7. Bill and Jill are house painters. Bill can paint a standard room in 2.15 hours, while Jill averages
 	    1.90 hours. How long will it take the two painters working together to paint 5 standard rooms?
