@@ -17,9 +17,27 @@ public class Exercise01_TestGrading {
     gradeTestPassFail(70) ➔ true
     gradeTestPassFail(45) ➔ false
      */
+//    public boolean gradeTestPassFail(int score) {
+//    boolean result = false;
+//
+//    {
+//        if (gradeTestPassFail(90)) {
+//            result = true;
+//        }else if (gradeTestPassFail(70));
+//            }
+//           {}
     public boolean gradeTestPassFail(int score) {
-        return false;
+        boolean result = false;
+
+        if (score >= 70) {
+            result = true;
+        } else if (score <= 45) {
+            result = false;
+        }
+
+        return result;
     }
+
 
     /*
     Grade-o-matic received numerous requests from customers to grade using a point-based system.
@@ -37,9 +55,21 @@ public class Exercise01_TestGrading {
     gradeTestNumeric(10) ➔ 0
      */
     public int gradeTestNumeric(int score) {
-        return 0;
-    }
+        int result = 0;
 
+        if (score >= 90) {
+            result = 3;
+        } else if (score <= 89 && score >= 50) {
+            result = 2;
+        } else if (score <= 49 && score >= 25) {
+            result = 1;
+        } else if (score <= 25) {
+            result = 0;
+        }
+
+        return result;
+
+    }
     /*
     Grade-o-matic has received even more requests to grade using the classic letter scale.
     Grade-o-matic v3.0 can now score tests on a letter scale.
@@ -56,6 +86,20 @@ public class Exercise01_TestGrading {
     gradeTestLetter(45) ➔ 'F'
      */
     public char gradeTestLetter(int score) {
-        return ' ';
+        char result = 'F';
+
+        if (score >= 90) {
+            result = 'A';
+        }else if (score >= 80 && score <= 89) {
+            result = 'B';
+        }else if (score >= 70 && score <= 79) {
+            result = 'C';
+        }else if (score >= 60 && score <= 69) {
+            result = 'D';
+        }else if (score <= 59) {
+            result = 'F';
+        }
+
+        return result;
     }
 }

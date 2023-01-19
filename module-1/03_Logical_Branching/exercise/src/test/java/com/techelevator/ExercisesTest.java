@@ -156,7 +156,7 @@ public class ExercisesTest {
 		assertEquals("calculateStayTotal(4) should return 359.96", 359.96, exercise.calculateStayTotal(4), 0.001);
 		assertEquals("calculateStayTotal(10) should return 899.9", 899.9, exercise.calculateStayTotal(10), 0.001);
 	}
-
+001
 	@Test
 	public void Exercise04_calculateStayTotal_2() {
 		Exercise04_HotelReservation exercise = new Exercise04_HotelReservation();

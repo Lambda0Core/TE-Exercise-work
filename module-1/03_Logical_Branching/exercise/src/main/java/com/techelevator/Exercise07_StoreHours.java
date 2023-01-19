@@ -32,8 +32,17 @@ public class Exercise07_StoreHours {
     isStoreOpen(22) ➔ false
      */
     public boolean isStoreOpen(int currentHour) {
-        return false;
+        boolean result = false;
+
+        if (currentHour <= 16 && currentHour >= 8) {
+            result = true;
+        } else if (currentHour >= 17) {
+            result = false;
+        }
+
+        return result;
     }
+
 
     /*
     Shelia forgot to take into account the day of the week.
@@ -53,8 +62,21 @@ public class Exercise07_StoreHours {
     isStoreOpen(12, 'W') ➔ true
     isStoreOpen(12, 'S') ➔ false
      */
-    public boolean isStoreOpen(int currentHour, char currentDay) {
-        return false;
+    public boolean isStoreOpen(int currentHour, char currentDay)  {
+        boolean result = false;
+
+        if (currentHour <= 16 && currentHour >= 8 && currentDay == 'M') {
+            result = true;
+        } else if (currentHour <= 16 && currentHour >= 8 && currentDay == 'W') {
+            result = true;
+        } else if (currentHour <= 16 && currentHour >= 8 && currentDay == 'F') {
+            result = true;
+            //Always closed on Sunday
+        } else if (currentDay == 'S') {
+            result = false;
+        }
+
+        return result;
     }
 
 
@@ -72,6 +94,25 @@ public class Exercise07_StoreHours {
     isStoreOpen(9, 'S', true) ➔ true
      */
     public boolean isStoreOpen(int currentHour, char currentDay, boolean isSummer) {
-        return false;
+        boolean result = false;
+
+            //Regular Hours
+        if (currentDay != 'S' && currentHour >= 8 && currentHour <= 16 && isSummer == false) {
+            result = true;
+        }if (currentDay == 'S' && isSummer == false) {
+            result = false;
+
+
+         //Summer Hours
+        } if (currentDay == 'M' && currentHour >= 8 && currentHour <= 16 && isSummer == true) {
+            result = true;
+        } if (currentDay == 'W' && currentHour >= 8 && currentHour <= 19 && isSummer == true) {
+            result = true;
+        } if (currentDay == 'F' && currentHour >= 8 && currentHour <= 16 && isSummer == true) {
+            result = true;
+        } if (currentDay == 'S' && currentHour >= 9 && currentHour <= 14 && isSummer == true) {
+            result = true;
+        }
+       return result;
     }
 }
