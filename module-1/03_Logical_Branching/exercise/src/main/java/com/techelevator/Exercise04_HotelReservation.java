@@ -27,11 +27,6 @@ public class Exercise04_HotelReservation {
      */
     public double calculateStayTotal(int numberOfNights) {
         double result = 0.0;
-        final double DAILY_RATE = 99.99;
-        final double DISCOUNT_RATE = 89.99;
-        final double PARKING_RATE = 25.0;
-        final double LATE_CHECKOUT_FEE = 20.0;
-        final int MINIMUM_NIGHTS_FOR_DISCOUNT_RATE = 3;
 
         if (numberOfNights <= 2) {
             result = DAILY_RATE * numberOfNights;
@@ -55,12 +50,6 @@ public class Exercise04_HotelReservation {
      */
     public double calculateStayTotal(int numOfTotalNights, boolean includesParking) {
         double result = 0.0;
-        final double DAILY_RATE = 99.99;
-        final double DISCOUNT_RATE = 89.99;
-        final double PARKING_RATE = 25.0;
-        final double LATE_CHECKOUT_FEE = 20.0;
-        final int MINIMUM_NIGHTS_FOR_DISCOUNT_RATE = 3;
-
         if (numOfTotalNights <= 2) {
             result = DAILY_RATE * numOfTotalNights;
         } else if (numOfTotalNights >= 3) {
