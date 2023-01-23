@@ -25,7 +25,12 @@ public class Exercise04_Cards {
     getFirstCard(["K-C", "Q-D", "J-H", "10-S", "Q-C"]) → "K-C"
     */
     public String getFirstCard(String[] hand) {
-        return "";
+
+        for (int i = 0; i < hand.length; i++) {
+
+        }
+
+        return hand[0];
     }
 
     /*
