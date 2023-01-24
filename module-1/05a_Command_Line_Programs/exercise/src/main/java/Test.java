@@ -3,18 +3,11 @@ import java.util.Scanner;
 public class Test {
 
     public static void main(String[] args) {
-        String binaryResult = "";
-        int enteredNumber = 10;
-        int remainder = 0;
-        int binaryNumber = enteredNumber;
-        while (enteredNumber > 0){
-            remainder = (binaryNumber % 2);
-            binaryResult += remainder;
-            binaryNumber = enteredNumber / 2;
+        String s1 = "ALL MEN ARE CREATED EQUAL";
+        String s2 = s1.substring(16, 19);
+
+        System.out.println(s2);
 
 
-            System.out.println(remainder);
-
-        }
     }
 }
