@@ -16,7 +16,12 @@ public class Exercises {
 	 array2List( {"Left", "Right", "Forward", "Back"} )  ->  ["Left", "Right", "Forward", "Back"]
 	 */
 	public List<String> array2List(String[] stringArray) {
-		return null;
+		List<String> str = new ArrayList<String>();
+		for (int i = 0; i < stringArray.length; i++) {
+			str.add(stringArray[i]);
+
+		}
+		return str;
 	}
 
 	/*
@@ -26,7 +31,8 @@ public class Exercises {
 	 list2Array( ["Left", "Right", "Forward", "Back"] )  ->  {"Left", "Right", "Forward", "Back"}
 	 */
 	public String[] list2Array(List<String> stringList) {
-		return null;
+		String[] listArray = stringList.toArray(new String[stringList.size()]);
+		return listArray;
 	}
 
 	/*
@@ -37,8 +43,19 @@ public class Exercises {
 	 no4LetterWords( {"Jack", "Jill", "Jane", "John", "Jim"} )  ->  ["Jim"]
 	 */
 	public List<String> no4LetterWords(String[] stringArray) {
-		return null;
+		List<String> newList = new ArrayList<String>();
+		if(stringArray.length > 0) {
+			for(int i = 0; i < stringArray.length; i++){
+				String item = stringArray[i];
+				if(item.length() != 4){
+					newList.add(item);
+				}
+			}
+		}
+
+		return newList;
 	}
+
 
 	/*
 	 Given an array of ints, divide each int by 2, and return an ArrayList of Doubles.
@@ -47,8 +64,17 @@ public class Exercises {
 	 arrayInt2ListDouble( {84, 99, 3285, 13, 877} ) -> [42, 49.5, 1642.5, 6.5, 438.5]
 	 */
 	public List<Double> arrayInt2ListDouble(int[] intArray) {
-		return null;
+		List<Double> doubleArray = new ArrayList<Double>();
+		double j;
+		if(intArray.length > 0) {
+			for(int i = 0; i < intArray.length; i++) {
+				j = intArray[i] / 2.0;
+				doubleArray.add(j);
+			}
+		}
+		return doubleArray;
 	}
+
 
 	/*
 	 Given a List of Integers, return the largest value.
@@ -57,7 +83,14 @@ public class Exercises {
 	 findLargest( [34070, 1380, 81238, 7782, 234, 64362, 627] ) -> 81238
 	 */
 	public Integer findLargest(List<Integer> integerList) {
-		return null;
+		int large = integerList.get(0);
+
+		for(int i = 0; i < integerList.size(); i++) {
+			if(integerList.get(i) > large) {
+				large = integerList.get(i);
+			}
+		}
+		return large;
 	}
 
 	/*
@@ -67,7 +100,14 @@ public class Exercises {
 	 oddOnly( {734, 233, 782, 811, 3, 9999} ) -> [233, 811, 3, 9999]
 	 */
 	public List<Integer> oddOnly(Integer[] integerArray) {
-		return null;
+		List<Integer> oddList = new ArrayList<Integer>();
+
+		for(int i = 0; i < integerArray.length; i++) {
+			if(integerArray[i] % 2 == 1) {
+				oddList.add(integerArray[i]);
+			}
+		}
+		return oddList;
 	}
 
 	/*
@@ -78,8 +118,23 @@ public class Exercises {
 	 foundIntTwice( [9, 9, 44, 2, 88, 9], 9) -> true
 	 */
 	public boolean foundIntTwice(List<Integer> integerList, int intToFind) {
+		int intTwice = 0;
+		for(int i = 0; i < integerList.size(); i++)
+
+		{
+			if(integerList.get(i) == intToFind)
+			{
+				intTwice++;
+				if(intTwice >= 2)
+
+				{
+					return true;
+				}
+			}
+		}
 		return false;
 	}
+
 
 	/*
 	 Given an array of Integers, return a List that contains the same Integers (as Strings). Except any multiple of 3
@@ -94,7 +149,21 @@ public class Exercises {
 	HINT: To convert an Integer x to a String, you can use x.toString() in your code. For example, if x = 1, then x.toString() returns "1."
 	 */
 	public List<String> fizzBuzzList(Integer[] integerArray) {
-		return null;
+		List<String> newFizz = new ArrayList<String>();
+
+		for(int i = 0; i < integerArray.length; i++) {
+			if((integerArray[i] % 3 == 0) && (integerArray[i] % 5 == 0)) {
+				newFizz.add("FizzBuzz");
+			}else if(integerArray[i] % 3 == 0) {
+				newFizz.add("Fizz");
+			}else if(integerArray[i] % 5 == 0) {
+				newFizz.add("Buzz");
+			}else {
+				newFizz.add(integerArray[i].toString());
+			}
+
+		}
+		return newFizz;
 	}
 
 	/*
@@ -107,7 +176,22 @@ public class Exercises {
      interleaveLists( [1, 2, 5, 8, 10], [4, 5, 6] )  ->  [1, 4, 2, 5, 5, 6, 8, 10]
 	 */
 	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
-		return null;
+		int i = 1;
+		int j = 0;
+		while(j < listTwo.size())
+		{
+			if(i < listOne.size())
+			{
+				listOne.add(i, listTwo.get(j));
+				i += 2;
+			}
+			else
+			{
+				listOne.add(listTwo.get(j));
+				i++;
+			}
+			j++;
+		}
+		return listOne;
 	}
-
 }
