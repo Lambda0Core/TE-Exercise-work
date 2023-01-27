@@ -264,13 +264,17 @@ public class Exercises {
      * 	 → {"SKU1": 100, "SKU2": 64, "SKU3": 44, "SKU4": 5}
      *
      */
-    public Map<String, Integer> consolidateInventory(Map<String, Integer> mainWarehouse,
-                                                     Map<String, Integer> remoteWarehouse) {
-        Map<String, Integer> newMap;
-//		if(mainWarehouse.get())
-
-        return mainWarehouse;
-    }
+    public Map<String, Integer> consolidateInventory(Map<String, Integer> mainWarehouse, Map<String, Integer> remoteWarehouse) {
+        Map<String, Integer>  consolidatedWarehouse = new HashMap<>();
+        consolidatedWarehouse.putAll(mainWarehouse);
+        consolidatedWarehouse.putAll(remoteWarehouse);
+        for(String key : mainWarehouse.keySet()) {
+            if (remoteWarehouse.containsKey(key)) {
+                consolidatedWarehouse.put(key, remoteWarehouse.get(key) + mainWarehouse.get(key));
+            }
+        }
+            return consolidatedWarehouse;
+        }
 
     /*
      * Just when you thought it was safe to get back in the water --- last2Revisited!!!!
@@ -287,9 +291,23 @@ public class Exercises {
      * last2Revisited(["hixxhi", "xaxxaxaxx", "axxxaaxx"]) → {"hixxhi": 1, "xaxxaxaxx": 1, "axxxaaxx": 2}
      *
      */
-    public Map<String, Integer> last2Revisited(String[] words) {
-        Map<String, Integer> result = new HashMap<>();
-        return result;
+    public Map last2Revisited(String[] words) {
+
+        Map last2Map = new HashMap();
+        for (String word : words) {
+            String twoLetters = word.substring(word.length() - 2);
+            int count = 0;
+            for (int i = 0; i < word.length() - 2; i++) {
+                String substring = word.substring(i, i + 2);
+                if (twoLetters.equals(substring)) {
+                    count++;
+                }
+            }
+            last2Map.put(word, count);
+        }
+        return last2Map;
+
     }
+
 
 }

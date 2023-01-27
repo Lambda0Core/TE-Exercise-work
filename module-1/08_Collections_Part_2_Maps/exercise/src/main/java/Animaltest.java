@@ -3,15 +3,25 @@ import java.util.Map;
 
 public class Animaltest {
     public static void main(String[] args) {
-        int paulMoney = 50000;
-        int peterMoney = 100000;
-        int peterMoneyPartner = 0;
-        if (peterMoney >= 100000 && paulMoney >= 50000){
-            paulMoney /=4;
-            peterMoney /=4;
-            peterMoneyPartner = paulMoney + peterMoney;
-        }
 
-        System.out.println(paulMoney);
+        Map<String, Integer> mainWarehouse = new HashMap<>();
+        mainWarehouse.put("SKU1", 100);
+        mainWarehouse .put("SKU2", 53);
+        mainWarehouse .put("SKU3", 44);
+
+        Map<String, Integer> remoteWarehouse = new HashMap<>();
+        remoteWarehouse.put("SKU2", 11);
+        remoteWarehouse.put("SKU4", 5);
+        //ExercisesTest.Java
+        Map<String, Integer>  consolidatedWarehouse = new HashMap<>();
+        consolidatedWarehouse.putAll(mainWarehouse);
+        consolidatedWarehouse.putAll(remoteWarehouse);
+           for(String key : mainWarehouse.keySet()) {
+                if (remoteWarehouse.containsKey(key)) {
+                    consolidatedWarehouse.put(key, remoteWarehouse.get(key) + mainWarehouse.get(key));
+            }
+        }
+        //I want remoteWarehouse's new keys
+        System.out.println(consolidatedWarehouse);
     }
 }
