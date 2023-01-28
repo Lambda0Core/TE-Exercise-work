@@ -11,7 +11,7 @@ public class Exercise04_Cards {
         * "1-D" through "10-D", "J-D", "Q-D", "K-D"
         * "1-H" through "10-H", "J-H", "Q-H", "K-H"
         * "1-S" through "10-S", "J-S", "Q-S", "K-S"
-    
+
     A hand is made up of a 5 card array. For example:
         ["3-H", "4-D", "10-S", "9-D", "2-S"]
      */
@@ -25,14 +25,8 @@ public class Exercise04_Cards {
     getFirstCard(["K-C", "Q-D", "J-H", "10-S", "Q-C"]) → "K-C"
     */
     public String getFirstCard(String[] hand) {
-
-        for (int i = 0; i < hand.length; i++) {
-
-        }
-
         return hand[0];
     }
-
     /*
     One of the players feels lucky and discards the first card from their hand.
 
@@ -67,5 +61,5 @@ public class Exercise04_Cards {
      */
     public String[] discardTopCard(String[] remainingDeck) {
         return new String[] {};
-    }    
+    }
 }

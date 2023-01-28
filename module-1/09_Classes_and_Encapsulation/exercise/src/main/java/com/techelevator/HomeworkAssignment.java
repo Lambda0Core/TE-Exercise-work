@@ -5,25 +5,44 @@ public class HomeworkAssignment {
     private int earnedMarks;
     private int possibleMarks;
     private String submitterName;
-    //Constructors
-
-    //Getters & Setters
-    public String getLetterGrade(){
-        if (letterGrade >= 90){
-          return "A";
-        }else if (letterGrade >= 80 && letterGrade <= 89){
-            return "B";
-        }else if (letterGrade >= 70 && letterGrade <= 79){
-            return "C";
-        }else if (letterGrade >= 60 && letterGrade <= 69){
-            return "D";
-        }else{
-            return "F";
-        }
+    private String letterGrade;
+    //Getters and Setters
+    public int getEarnedMarks(){
+        return this.earnedMarks;
     }
+    public int getPossibleMarks(){
+        return this.possibleMarks;
+    }
+    public String getSubmitterName(){
+        return this.submitterName;
+    }
+        public void setEarnedMarks(int earnedMarks) {
+            this.earnedMarks = earnedMarks;
+        }
+    //Constructor
+    public HomeworkAssignment(int possibleMarks, String submitterName){
+        this.earnedMarks = earnedMarks;
+        this.possibleMarks = possibleMarks;
+        this.submitterName = submitterName;
+    }
+    //Method
+    public String getLetterGrade() {
 
-    //Methods
+        double percent = getEarnedMarks()* 100 / getPossibleMarks();
 
+        if (percent >= 90) {
+            letterGrade = "A";
+        } else if (percent >= 80) {
+            letterGrade = "B";
+        } else if (percent >= 70) {
+            letterGrade = "C";
+        } else if (percent >= 60) {
+            letterGrade = "D";
+        } else {
+            letterGrade = "F";
+        }
+        return letterGrade;
+    }
 }
 
 
