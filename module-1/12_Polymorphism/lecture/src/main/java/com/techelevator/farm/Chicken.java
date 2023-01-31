@@ -7,6 +7,7 @@ public class Chicken extends FarmAnimal {
 	}
 
 	public void layEgg() {
+
 		System.out.println("Chicken laid an egg!");
 	}
 
