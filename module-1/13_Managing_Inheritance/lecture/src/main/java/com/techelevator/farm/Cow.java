@@ -6,7 +6,7 @@ public class Cow extends FarmAnimal implements Sellable {
 	private BigDecimal price;
 
 	public Cow() {
-		super("Cow", "moo!");
+		super("Cow", "moo!", false);
 		price = new BigDecimal("1500.00");
 	}
 
