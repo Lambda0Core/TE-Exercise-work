@@ -11,7 +11,7 @@ public class AnimalGroupName {
         animals.put("rhino", "Crash");
         animals.put("giraffe", "Tower");
         animals.put("elephant", "Herd");
-        animals.put("lion", "Pride");
+        animals.put("lion", "Pride"); // edited as per directions from Frank so all test pass
         animals.put("crow", "Murder");
         animals.put("pigeon", "Kit");
         animals.put("flamingo", "Pat");
@@ -25,7 +25,7 @@ public class AnimalGroupName {
      * (e.g. "Elephant" -> "Herd", "Rhino" - "Crash").
      *
      * The animal name should be case insensitive so "elephant", "Elephant", and
-     * "ELEPHANT" should all return "Herd".
+     * "ELEPHANT" should all return "herd".
      *
      * If the name of the animal is not found, null, or empty, return "unknown".
      *

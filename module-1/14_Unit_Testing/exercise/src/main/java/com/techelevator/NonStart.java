@@ -10,18 +10,10 @@ public class NonStart {
      GetPartialString("shotl", "java") → "hotlava"
      */
     public String getPartialString(String a, String b) {
-        if (a == null) {
-            a = "";
-        }
-        if (b == null) {
-            b = "";
-        }
-        if (a.length() == 0 && b.length() > 0) {
+        if (a.length() == 0) {
             return b.substring(1);
-        } else if (b.length() == 0 && a.length() > 0) {
+        } else if (b.length() == 0) {
             return a.substring(1);
-        } else if (a.length() == 0 && b.length() == 0) {
-            return "";
         } else {
             return a.substring(1) + b.substring(1);
         }
