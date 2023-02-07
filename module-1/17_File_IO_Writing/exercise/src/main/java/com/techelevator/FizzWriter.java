@@ -17,7 +17,7 @@ public class FizzWriter {
 
 	public void run() {
 		//Create file in /test/resources dir
-		File f = new File("src/test/resources/FizzBuzz.txt");
+		File f = new File("./src/test/resources/FizzBuzz.txt");
 		//print fizz buzz in the new file
 		try (PrintWriter writer = new PrintWriter(f)) {
 			for (int i = 1; i <= 300; i++) {
