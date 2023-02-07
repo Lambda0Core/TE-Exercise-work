@@ -1,0 +1,16 @@
+wrote to file.writeToFile3.txtabsolute path: C:\Users\Student\workspace\classroom\module-1\17_File_IO_Writing\lecture\data\writeToFile3.txtsize: 0overwritten file.writeToFile3.txtabsolute path: C:\Users\Student\workspace\classroom\module-1\17_File_IO_Writing\lecture\data\writeToFile3.txtsize: 146wrote to file.
+writeToFile3.txt
+absolute path: 	C:\Users\Student\workspace\classroom\module-1\17_File_IO_Writing\lecture\data\writeToFile3.txt
+size: 297
+overwritten file.
+writeToFile3.txt
+absolute path: 	C:\Users\Student\workspace\classroom\module-1\17_File_IO_Writing\lecture\data\writeToFile3.txt
+size: 450
+wrote to file.
+writeToFile3.txt
+absolute path: 	C:\Users\Student\workspace\classroom\module-1\17_File_IO_Writing\lecture\data\writeToFile3.txt
+size: 606
+overwritten file.
+writeToFile3.txt
+absolute path: 	C:\Users\Student\workspace\classroom\module-1\17_File_IO_Writing\lecture\data\writeToFile3.txt
+size: 759

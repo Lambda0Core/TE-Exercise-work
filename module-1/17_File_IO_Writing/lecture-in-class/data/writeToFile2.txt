@@ -1,0 +1,4 @@
+successfully wrote to file again.
+writeToFile2.txt
+absolute path: C:\Users\Student\workspace\classroom\module-1\17_File_IO_Writing\lecture\data\writeToFile2.txt
+size: 0
