@@ -1,0 +1,12 @@
+successfully wrote to file yet again!successfully wrote to file yet again!writeToFile3.txt
+absolute path: C:\Users\Student\workspace\emily-lefebvre-student-code\module-1\17_File_IO_Writing\lecture\data\writeToFile3.txt
+file size: 511087472640
+successfully wrote to file yet again!successfully wrote to file yet again!writeToFile3.txt
+absolute path: C:\Users\Student\workspace\emily-lefebvre-student-code\module-1\17_File_IO_Writing\lecture\data\writeToFile3.txt
+file size: 246
+successfully wrote to file yet again!successfully wrote to file yet again!writeToFile3.txt
+absolute path: C:\Users\Student\workspace\emily-lefebvre-student-code\module-1\17_File_IO_Writing\lecture\data\writeToFile3.txt
+file size: 483
+successfully wrote to file yet again!successfully wrote to file yet again!writeToFile3.txt
+absolute path: C:\Users\Student\workspace\emily-lefebvre-student-code\module-1\17_File_IO_Writing\lecture\data\writeToFile3.txt
+file size: 720
