@@ -17,7 +17,10 @@ public class FizzWriter {
 
 	public void run() {
 		//Create file in /test/resources dir
-		File f = new File("./src/test/resources/FizzBuzz.txt");
+		System.out.println("What is the destination file?");
+		String destination = userInput.nextLine();
+		userInput.close();
+		File f = new File(destination);
 		//print fizz buzz in the new file
 		try (PrintWriter writer = new PrintWriter(f)) {
 			for (int i = 1; i <= 300; i++) {
