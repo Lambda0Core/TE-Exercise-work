@@ -3,7 +3,10 @@
 -- Order the results alphabetically by nickname.
 -- (51 rows)
 
+<<<<<<< HEAD
 SELECT state_name||' ('||state_nickname||')' AS state_and_nickname
 FROM state
 WHERE state_nickname IS NOT NULL
 ORDER BY state_nickname;
+=======
+>>>>>>> 351c55f855de2bba0e210a8598bc0632118bbadc

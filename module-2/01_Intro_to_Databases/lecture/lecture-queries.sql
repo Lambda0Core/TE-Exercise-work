@@ -1,5 +1,6 @@
 -- SELECT
 -- Use a SELECT statement to return a literal string
+<<<<<<< HEAD
 SELECT 'Hello World!';
 Select 'Hello Class';
 
@@ -13,11 +14,22 @@ SELECT 2+2 AS sum,
 select state_abbreviation, state_name
 from state;
 
+=======
+
+
+-- Use a SELECT statement to add two numbers together (and label the result "sum")
+
+
+
+-- SELECT ... FROM
+-- Write queries to retrieve...
+>>>>>>> 351c55f855de2bba0e210a8598bc0632118bbadc
 
 -- The names from all the records in the state table
 
 
 -- The names and populations of all cities
+<<<<<<< HEAD
 SELECT city,
        population,
 	   state_abbreviation,
@@ -38,11 +50,19 @@ FROM PUBLIC.park;
 select distinct state_abbreviation
 from city
 WHERE state_abbreviation = 'OH';
+=======
+
+
+-- All columns from the park table
+
+
+>>>>>>> 351c55f855de2bba0e210a8598bc0632118bbadc
 
 -- SELECT __ FROM __ WHERE
 -- Write queries to retrieve...
 
 -- The names of cities in California (CA)
+<<<<<<< HEAD
 select city_name, population
 from city
 WHERE state_abbreviation = 'CA';
@@ -65,6 +85,21 @@ where census_region IS null;
 select state_name, census_region
 from state
 where census_region IS null;
+=======
+
+
+-- The names and state abbreviations of cities NOT in California
+
+
+-- The names and areas of cities smaller than 25 square kilometers 
+
+
+-- The names from all records in the state table that have no assigned census region
+
+
+-- The names and census regions from all records in the state table that have an assigned census region
+
+>>>>>>> 351c55f855de2bba0e210a8598bc0632118bbadc
 
 
 -- WHERE with AND/OR
@@ -87,8 +122,13 @@ where census_region IS null;
 -- Write a query to retrieve the names and areas of all parks in square METERS
 -- (the values in the database are stored in square kilometers)
 -- Label the second column "area_in_square_meters"
+<<<<<<< HEAD
 SELECT park_name, (area + 1000000) AS area_in_square_meters
 from park;
+=======
+
+
+>>>>>>> 351c55f855de2bba0e210a8598bc0632118bbadc
 
 -- All values vs. distinct values
 
@@ -103,15 +143,20 @@ from park;
 -- Write queries to retrieve...
 
 -- The names of all cities that begin with the letter "A"
+<<<<<<< HEAD
 select city_name
 from city
 where city_name
 LIKE 'A%';
+=======
+
+>>>>>>> 351c55f855de2bba0e210a8598bc0632118bbadc
 
 -- The names of all cities that end with "Falls"
 
 
 -- The names of all cities that contain a space
+<<<<<<< HEAD
 SELECT park_name, area
 from park
 WHERE area between 100 and 200;
@@ -121,10 +166,22 @@ WHERE area between 100 and 200;
 SELECT park_name, date_established
 FROM park
 WHERE date_established < '1/1/1900';
+=======
+
+
+
+-- BETWEEN
+-- Write a query to retrieve the names and areas of parks of at least 100 sq. kilometers but no more than 200 sq. kilometers
+
+>>>>>>> 351c55f855de2bba0e210a8598bc0632118bbadc
 
 
 -- DATES
 -- Write a query to retrieve the names and dates established of parks established before 1900
+<<<<<<< HEAD
 SELECT park_name, date_established
 FROM park
 WHERE date_established::date < date '1900-01-01';
+=======
+
+>>>>>>> 351c55f855de2bba0e210a8598bc0632118bbadc

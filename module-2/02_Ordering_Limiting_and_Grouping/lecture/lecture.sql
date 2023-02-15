@@ -1,6 +1,7 @@
 -- ORDERING RESULTS
 
 -- Populations of all states from largest to smallest.
+<<<<<<< HEAD
 SELECT state_name, population
 FROM state
 ORDER BY population DESC, state_name ASC;
@@ -42,10 +43,31 @@ SELECT park_name,
 from park
 ORDER BY age DESC
 LIMIT 20;
+=======
+
+
+-- States sorted alphabetically (A-Z) within their census region. The census regions are sorted in reverse alphabetical (Z-A) order.
+
+
+-- The biggest park by area
+
+
+
+-- LIMITING RESULTS
+
+-- The 10 largest cities by populations
+
+
+-- The 20 oldest parks from oldest to youngest in years, sorted alphabetically by name.
+
+
+
+>>>>>>> 351c55f855de2bba0e210a8598bc0632118bbadc
 
 -- CONCATENATING OUTPUTS
 
 -- All city names and their state abbreviation.
+<<<<<<< HEAD
 SELECT city_name || ', (' || state_abbreviation || ')' as state_abbreviation
 FROM city
 order by city_name;
@@ -108,10 +130,39 @@ from state
 group by state_name
 order by max_population
 limit 1;
+=======
+
+
+-- The all parks by name and date established.
+
+
+-- The census region and state name of all states in the West & Midwest sorted in ascending order.
+
+
+
+-- AGGREGATE FUNCTIONS
+
+-- Average population across all the states. Note the use of alias, common with aggregated values.
+
+
+-- Total population in the West and South census regions
+
+
+-- The number of cities with populations greater than 1 million
+
+
+-- The number of state nicknames.
+
+
+-- The area of the smallest and largest parks.
+
+
+>>>>>>> 351c55f855de2bba0e210a8598bc0632118bbadc
 
 -- GROUP BY
 
 -- Count the number of cities in each state, ordered from most cities to least.
+<<<<<<< HEAD
 SELECT COUNT(city) as cities, state_abbreviation
 from city
 group by state_abbreviation
@@ -144,6 +195,19 @@ from city
 group by city_name
 HAVING COUNT(*) > 1
 order by dup_count desc;
+=======
+
+
+-- Determine the average park area depending upon whether parks allow camping or not.
+
+
+-- Sum of the population of cities in each state ordered by state abbreviation.
+
+
+-- The smallest city population in each state ordered by city population.
+
+
+>>>>>>> 351c55f855de2bba0e210a8598bc0632118bbadc
 
 -- Miscelleneous
 
@@ -153,15 +217,20 @@ order by dup_count desc;
 -- For instance, to get the first 10 rows in the city table
 -- ordered by the name, you could use the following query.
 -- (Skip 0 rows, and return only the first 10 rows from the sorted result set.)
+<<<<<<< HEAD
 SELECT city_name, state_abbreviation, population
 from city
 ORDER BY city_name
 OFFSET (10 * 2) ROWS FETCH NEXT 10 ROWs ONLY;
+=======
+
+>>>>>>> 351c55f855de2bba0e210a8598bc0632118bbadc
 
 
 -- SUBQUERIES (optional)
 
 -- Include state name rather than the state abbreviation while counting the number of cities in each state,
+<<<<<<< HEAD
 -- (SELECT state_name from state WHERE state.state_abbreviation = city.state_abbreviation) as stateName
 -- from city
 -- group by city.state_abbreviation
@@ -186,3 +255,12 @@ FROM state
 WHERE state.census_region = 'Northeast'
 AND state.state_abbreviation in ('CT', 'MA')
 ORDER BY state.state_abbreviation;
+=======
+
+
+-- Include the names of the smallest and largest parks
+
+
+-- List the capital cities for the states in the Northeast census region.
+
+>>>>>>> 351c55f855de2bba0e210a8598bc0632118bbadc
