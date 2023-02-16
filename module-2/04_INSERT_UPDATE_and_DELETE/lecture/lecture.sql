@@ -7,7 +7,10 @@
 
 
 -- Since Disneyland is in California (CA), add a record representing that to the park_state table.
-
+-- INTO park(park_name, date_established,
+-- 				 area, has_camping)
+-- 				 VALUES ('Disneyland', '7/17/1995',
+-- 						2.1, false);
 
 
 -- UPDATE
@@ -16,34 +19,77 @@
 
 
 -- Increase the population of California by 1,000,000.
-
+UPDATE state
+ SET population = population + 1000000
+ WHERE state_abbreviation = 'CA';
+ 
+ 
 
 -- Change the capital of California to Anaheim.
+SELECT city_id
+FROM city
+WHERE city_name = 'Anaheim'
+AND state_abbreviation = 'CA';
+
+
+UPDATE state
+   SET capital = (SELECT city_id
+                  FROM city
+                  WHERE city_name = 'Anaheim'
+                  AND state_abbreviation = 'CA'
+                  LIMIT 1)
+WHERE state_abbreviation = 'CA';
 
 
 -- Change California's nickname back to "The Golden State", reduce the population by 1,000,000, and change the capital back to Sacramento.
-
+UPDATE state
+    SET state_nickname = 'The Golden State',
+	    population = (population - 1000000),
+		capital = (SELECT city_id
+				   FROM city
+				   WHERE city_name = 'Sacramento' and state_abbreviation = 'CA' limit 1)
+				   WHERE state_abbreviation = 'CA';
 
 
 -- DELETE
 
 -- Delete Hawkins, IN from the city table.
+SELECT *
+FROM city 
+WHERE city_name = 'Hawkins'
+AND state_abbreviation = 'IN';
 
+DELETE
+FROM city
+WHERE city_name = 'West Chester'
+AND state_abbreviation = 'OH';
 
 -- Delete all cities with a population of less than 1,000 people from the city table.
-
-
-
--- REFERENTIAL INTEGRITY
+DELETE
+FROM city
+WHERE population < 1000;
 
 -- Try adding a city to the city table with "XX" as the state abbreviation.
+-- INSER into city(city_name,state_abbreviation, population, area)
+-- VALUES ('Hartwell', 'XX', 100, 100);
 
 
--- Try deleting California from the state table.
+-- -- Try deleting California from the state table.
+-- DELETEe
+-- from state
+-- where state_abbreviation = 'CA';
 
 
 -- Try deleting Disneyland from the park table. Try again after deleting its record from the park_state table.
-
+-- START TRANSACTION;
+-- DELETE
+-- from park_statewhere park_id in (SELECT park_id
+-- 							   from park
+-- 							   where park_name = 'Disneyland');
+-- 							   DELETE from park
+-- 							   Where park_name = 'Disneyland';
+							   
+							   ROLLBACK TRANSACTION;
 
 
 -- CONSTRAINTS
