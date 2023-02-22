@@ -19,18 +19,46 @@ public class JdbcDepartmentDao implements DepartmentDao {
 	}
 
 	@Override
-	public Department getDepartment(int id) {
-		return new Department(0, "Not Implemented Yet");
+	public Department getDepartment(int departmentId) {
+		Department department = null;
+
+		String sql = "SELECT department.department_id, department.name " +
+				" from department " +
+				"WHERE department.department_id =  ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, departmentId);
+
+		if (results.next()){
+			department = mapRowToDepartment(results);
+		}
+
+		return department;
 	}
 
 	@Override
 	public List<Department> getAllDepartments() {
-		return new ArrayList<>();
+		ArrayList<Department> departments = new ArrayList<Department>();
+		String sqlGetDepartment = "SELECT * FROM department";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetDepartment);
+		while (results.next()) {
+			Department theDepartment = mapRowToDepartment(results);
+			departments.add(theDepartment);
+		}
+		return departments;
 	}
+
+	private Department mapRowToDepartment(SqlRowSet results) {
+		Department department = new Department();
+		department.setId(results.getInt("department_id"));
+		department.setName(results.getString("name"));
+		return department;
+	}
+
 
 	@Override
 	public void updateDepartment(Department updatedDepartment) {
-
+		String sql = "UPDATE department " +
+				"SET name = ? " +
+				"WHERE department_id = ?;";
+		jdbcTemplate.update(sql, updatedDepartment.getName(), updatedDepartment.getId());
 	}
-
 }
