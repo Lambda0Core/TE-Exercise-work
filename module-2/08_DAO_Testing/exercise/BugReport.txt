@@ -1,43 +1,47 @@
 Bug 1
 -----
-Test that demonstrates problem:
+Test that demonstrates problem: getBillableHours_returns_correct_total
 
-Expected output:
+Expected output:2.5
 
-Actual output:
+Actual output:0.0
 
 How did you fix this bug?
 
+Added "billable = true" to WHERE clause to only select billable hours.
 
 Bug 2
 -----
-Test that demonstrates problem:
+Test that demonstrates problem: updated_timesheet_has_expected_values_when_retrieved
 
-Expected output:
+Expected output:false
 
-Actual output:
+Actual output:true
 
 How did you fix this bug?
+
+Added "billable" to the SET statement, added "isBillable()" to updatedTimesheet.
 
 
 Bug 3
 -----
-Test that demonstrates problem:
+Test that demonstrates problem: getTimesheetsByEmployeeId_returns_list_of_all_timesheets_for_employee
 
-Expected output:
+Expected output: 2
 
-Actual output:
+Actual output: 1
 
 How did you fix this bug?
-
+Changed from an IF statement to a WHILE loop
 
 Bug 4
 -----
 Test that demonstrates problem:
 
-Expected output:
+Expected output: 3
 
-Actual output:
+Actual output: 2
 
 How did you fix this bug?
 
+Changed "WHERE employee_id = ?" to "project_id"
