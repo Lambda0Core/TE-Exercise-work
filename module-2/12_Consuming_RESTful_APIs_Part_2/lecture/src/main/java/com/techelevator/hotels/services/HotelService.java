@@ -3,10 +3,13 @@ package com.techelevator.hotels.services;
 import com.techelevator.hotels.model.Hotel;
 import com.techelevator.hotels.model.Reservation;
 import com.techelevator.util.BasicLogger;
+import org.apache.commons.logging.Log;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.MediaType;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestTemplate;
-
+import org.springframework.http.HttpHeaders;
 
 public class HotelService {
 
@@ -17,8 +20,18 @@ public class HotelService {
      * Create a new reservation in the hotel reservation system
      */
     public Reservation addReservation(Reservation newReservation) {
-        // TODO: Implement method
-        return null;
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Reservation> entity = new HttpEntity<>(newReservation, headers);
+        Reservation newerReservation = null;
+        try {
+            newerReservation = restTemplate.postForObject(API_BASE_URL + "reservations", entity, Reservation.class);
+        } catch (RestClientResponseException ex) {
+            BasicLogger.log(ex.getRawStatusCode() +  " : " + "Uh-oh, Programmer is asleep. Hold out, programmer!");
+        } catch (ResourceAccessException ex){
+            BasicLogger.log(ex.getMessage() +  " : " + "Uh-oh, Programmer isn't waking up, please, wake up! PLEASE! :'(");
+        }
+        return newerReservation;
     }
 
     /**
@@ -26,16 +39,37 @@ public class HotelService {
      * reservation
      */
     public boolean updateReservation(Reservation updatedReservation) {
-        // TODO: Implement method
-        return false;
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Reservation> entity = new HttpEntity<>(updatedReservation, headers);
+
+        boolean success = false;
+        try{
+            restTemplate.put(API_BASE_URL + "reservations/" + updatedReservation.getId(), entity);
+            success = true;
+        } catch (RestClientResponseException ex){
+            BasicLogger.log(ex.getRawStatusCode() +  " : " + "Uh-oh, Programmer is asleep. Hold out, programmer!");
+        } catch (ResourceAccessException ex){
+            BasicLogger.log(ex.getMessage() +  " : " + "Uh-oh, Programmer isn't waking up, please, wake up! PLEASE! :'(");
+        }
+
+        return success;
     }
 
     /**
      * Delete an existing reservation
      */
     public boolean deleteReservation(int id) {
-        // TODO: Implement method
-        return false;
+        boolean success = false;
+        try{
+            restTemplate.delete(API_BASE_URL + "reservations/" + id );
+            success = true;
+        } catch (RestClientResponseException ex){
+            BasicLogger.log(ex.getRawStatusCode() +  " : " + "Uh-oh, Programmer is asleep. Hold out, programmer!");
+        } catch (ResourceAccessException ex){
+            BasicLogger.log(ex.getMessage() +  " : " + "Uh-oh, Programmer isn't waking up, please, wake up! PLEASE! :'(");
+        }
+        return success;
     }
 
     /* DON'T MODIFY ANY METHODS BELOW */

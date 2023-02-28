@@ -17,19 +17,51 @@ public class AuctionService {
 
 
     public Auction add(Auction newAuction) {
-        // place code here
-        return null;
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Auction> entity = new HttpEntity<>(newAuction, headers);
+        Auction newerAuction = null;
+        try {
+            newerAuction = restTemplate.postForObject(API_BASE_URL, entity, Auction.class);
+        } catch (RestClientResponseException ex) {
+            BasicLogger.log(ex.getRawStatusCode() +  " : " + "404 File Not Found");
+        } catch (ResourceAccessException ex){
+            BasicLogger.log(ex.getMessage() +  " : " + "Uh-oh, Programmer is asleep. Hold out, programmer!");
+        }
+        return newerAuction;
     }
 
     public boolean update(Auction updatedAuction) {
-        // place code here
-        return false;
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Auction> entity = new HttpEntity<>(updatedAuction, headers);
+
+        boolean success = false;
+        try{
+            restTemplate.put(API_BASE_URL + updatedAuction.getId(), entity);
+            success = true;
+        } catch (RestClientResponseException ex) {
+            BasicLogger.log(ex.getRawStatusCode() +  " : " + "404 File Not Found");
+        } catch (ResourceAccessException ex){
+            BasicLogger.log(ex.getMessage() +  " : " + "Uh-oh, Programmer is asleep. Hold out, programmer!");
+        }
+
+        return success;
     }
 
     public boolean delete(int auctionId) {
-        // place code here
-        return false;
+        boolean success = false;
+        try{
+            restTemplate.delete(API_BASE_URL + auctionId );
+            success = true;
+        } catch (RestClientResponseException ex) {
+            BasicLogger.log(ex.getRawStatusCode() +  " : " + "404 File Not Found");
+        } catch (ResourceAccessException ex){
+            BasicLogger.log(ex.getMessage() +  " : " + "Uh-oh, Programmer is asleep. Hold out, programmer!");
+        }
+        return success;
     }
+
 
     public Auction[] getAllAuctions() {
         Auction[] auctions = null;

@@ -15,19 +15,51 @@ public class LocationService {
     private final RestTemplate restTemplate = new RestTemplate();
 
     public Location add(Location newLocation) {
-        //Step Three: Add a location with POST
-        return null;
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Location> entity = new HttpEntity<>(newLocation, headers);
+        Location newerLocation = null;
+        try {
+            newerLocation = restTemplate.postForObject(API_BASE_URL, entity, Location.class);
+        } catch (RestClientResponseException ex) {
+            BasicLogger.log(ex.getRawStatusCode() +  " : " + "404 File Not Found");
+        } catch (ResourceAccessException ex){
+            BasicLogger.log(ex.getMessage() +  " : " + "Uh-oh, Programmer is asleep. Hold out, programmer!");
+        }
+        return newerLocation;
     }
 
     public boolean update(Location updatedLocation) {
-        //Step Four: Modify a location with PUT
-        return false;
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Location> entity = new HttpEntity<>(updatedLocation, headers);
+
+        boolean success = false;
+        try{
+            restTemplate.put(API_BASE_URL + updatedLocation.getId(), entity);
+            success = true;
+        } catch (RestClientResponseException ex) {
+            BasicLogger.log(ex.getRawStatusCode() +  " : " + "404 File Not Found");
+        } catch (ResourceAccessException ex){
+            BasicLogger.log(ex.getMessage() +  " : " + "Uh-oh, Programmer is asleep. Hold out, programmer!");
+        }
+
+        return success;
     }
 
     public boolean delete(int id) {
-        //Step Five: Delete a location with DELETE
-        return false;
+        boolean success = false;
+        try{
+            restTemplate.delete(API_BASE_URL + id );
+            success = true;
+        } catch (RestClientResponseException ex) {
+            BasicLogger.log(ex.getRawStatusCode() +  " : " + "404 File Not Found");
+        } catch (ResourceAccessException ex){
+            BasicLogger.log(ex.getMessage() +  " : " + "Uh-oh, Programmer is asleep. Hold out, programmer!");
+        }
+        return success;
     }
+
 
     public Location[] getAll() {
         Location[] locations = null;
