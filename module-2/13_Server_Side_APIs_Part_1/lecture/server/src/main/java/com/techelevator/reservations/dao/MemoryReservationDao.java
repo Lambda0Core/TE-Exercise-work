@@ -56,6 +56,15 @@ public class MemoryReservationDao implements ReservationDao {
         }
         return null;
     }
+//Replace with code from final lecture
+//    public Reservation get(int hotelId, int reservationId) {
+//        for (Reservation res : reservations) {
+//            if (res.getId() == reservationId && res.) {
+//                return res;
+//            }
+//        }
+//        return null;
+//    }
 
     @Override
     public Reservation create(Reservation reservation, int hotelId) {

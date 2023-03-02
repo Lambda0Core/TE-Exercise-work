@@ -4,10 +4,12 @@ import com.techelevator.reservations.dao.HotelDao;
 import com.techelevator.reservations.dao.ReservationDao;
 import com.techelevator.reservations.model.Hotel;
 import com.techelevator.reservations.model.Reservation;
+import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -94,7 +96,7 @@ public class HotelController {
         }
     }
 
-    /**
+    /**r
      * Create a new reservation for a given hotel
      *
      * @param reservation
@@ -104,4 +106,19 @@ public class HotelController {
     public Reservation addReservation(@RequestBody Reservation reservation) {
         return reservationDao.create(reservation, reservation.getHotelId());
     }
+
+    @RequestMapping(path = "/reservations/{id}", method = RequestMethod.PUT)
+    public Reservation updateReservation(@Valid @RequestBody Reservation reservation, @PathVariable("id") int id){
+            if (reservation.getId() == 0 && id > 0){
+                reservation.setId(id);
+            }
+
+        Reservation updatedReservation = this.reservationDao.update(reservation, id);
+
+            if (updatedReservation ==null){
+                throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Reservation not found");
+            }
+            return updatedReservation;
+    }
+
 }

@@ -10,6 +10,7 @@ public interface ReservationDao {
     List<Reservation> findByHotel(int hotelId);
 
     Reservation get(int reservationId);
+    //add overloaded methof with hotel id from final lecture
 
     Reservation create(Reservation reservation, int hotelId);
 

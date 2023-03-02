@@ -67,6 +67,7 @@ public class MemoryAuctionDao implements AuctionDao {
         List<Auction> auctionsByTitle = searchByTitle(title);
         List<Auction> auctionsByPrice = searchByPrice(currentBid);
         return auctionsByTitle.stream().filter(auctionsByPrice::contains).collect(Collectors.toList());
+
     }
 
     private void setAuctions() {
