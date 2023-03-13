@@ -24,7 +24,7 @@ public class MemoryReservationDao implements ReservationDao {
     }
 
     @Override
-    public List<Reservation> findByHotel(int hotelId) {
+    public <Reservation> findByHotel(int hotelId) {
         List<Hotel> hotels = hotelDao.list();
         boolean hotelExists = false;
         for (Hotel hotel : hotels) {

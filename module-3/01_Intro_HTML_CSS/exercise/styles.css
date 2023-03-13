@@ -1,0 +1,31 @@
+#firstimage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  
+}
+
+body {
+  background-color: antiquewhite;
+}
+
+#quotes-section {
+  font-style: italic;
+}
+
+#facts-section {
+
+}
+
+#italics {
+  font-style: italic;
+}
+#year-titles {
+  text-decoration: underline;
+
+}
+
+#initialHeader {
+  text-align: center;
+}
