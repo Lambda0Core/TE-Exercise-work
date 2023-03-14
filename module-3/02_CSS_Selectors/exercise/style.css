@@ -53,7 +53,7 @@ aside > nav > ul > li {
   width: 80%;
   line-height: 2;
 }
-aside > nav > ul > li > a {
+.normal-list {
   font-weight: bold;
   color: #00ADEE;
   text-decoration: none;
