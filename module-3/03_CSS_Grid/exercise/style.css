@@ -15,14 +15,14 @@ body {
 
 #main-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 496px 496px 496px;
     row-gap: 20px;
     column-gap: 50px;
     grid-template-areas:
     "studentname studentname pic"
     "quote quote pic" 
     "profile profile contact"
-    "experience experience experience";
+    "experience-grid experience experience";
     align-items: center;
 }
 #headline {
@@ -52,7 +52,7 @@ body {
     "code code"
     "database database"
     "web design";
-    grid-area: experience;
+    grid-area: experience-grid;
 }
 #experience-grid#experience-code {
     grid-area: code;
@@ -105,16 +105,16 @@ body {
        "database design";
        grid-area: experience;
     }
-    #experience-grid#experience-code {
+    #experience-code {
         grid-area: code;
     }
-    #experience-grid#experience-web {
+    #experience-web {
         grid-area: web;
     }
-    #experience-grid#experience-database {
+    #experience-database {
         grid-area: database;
     }
-    #experience-grid#experience-design {
+    #experience-design {
         grid-area: design;
     }
 }
