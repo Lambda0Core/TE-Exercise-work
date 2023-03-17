@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Form</title>
+</head>
+<body>
+   
+<form action="http://example.com" method="post">
+    <div class="dv-input">
+        <label for="username">User Name:</label>
+        <input type="text" name="username" id="username">
+    </div>
+
+    <div class="dv-input">
+        <label for="apptdate">Appt Date:</label>
+        <input type="datetime-local" name="apptdate" id="apptdate">
+    </div>
+
+    <!---- submit -->
+    <input type="submit" value="submit" name="submitbutton" id="submitbutton" />    
+</form>
+
+<script>
+ const form =  document.querySelector("form");
+ form.addEventListener("submit", handleSubmit);
+
+ function handleSubmit(event){
+    event.preventDefault();
+    getData(event.target);
+ }
+
+
+ function getData(form) {
+            var formData = new FormData(form);
+
+            // iterate through entries...
+            for (var pair of formData.entries()) {
+                console.log(pair[0] + ": " + pair[1]);
+            }
+
+            // ...or output as an object
+            console.log(Object.fromEntries(formData));
+        }
+</script>
+
+</body>
+</html>
