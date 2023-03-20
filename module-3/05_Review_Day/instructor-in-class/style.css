@@ -1,0 +1,13 @@
+#firstTable {
+    border: 1px solid blue;
+    height: 50%;
+}
+
+#secondTable {
+    border: 1px solid red;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-evenly;
+}
