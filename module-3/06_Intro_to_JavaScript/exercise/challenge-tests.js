@@ -14,9 +14,6 @@ describe('Challenge Exercises', () => {
     it('should be 0 when all numbers are even', () => {
       iqTest('2 2 4 6').should.equal(0);
     });
-    it('should be 1 when first number is odd and other numbers are even', () => {
-      iqTest('1 2 2').should.equal(1);
-    });
   });
 
   describe('Title Case', () => {

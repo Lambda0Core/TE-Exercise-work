@@ -11,6 +11,55 @@
 		iqTest("") → 0 // there are no numbers in the given set
         iqTest("2 2 4 6") → 0 // all numbers are even, therefore there is no position of an odd number
 */
+        function iqTest(test) {
+            array = test.split(' ');
+            array.unshift(0);
+            let evenCount = -1;
+            let oddCount = 0;
+            let evenWinner = 0;
+            let oddWinner = 0;
+
+            for (i of array) {
+                if (i % 2 === 0) {
+                    evenCount++
+                    evenWinner = i;
+                } else if (i % 2 != 0) {
+                    oddCount++
+                    oddWinner = i;
+                }
+            }
+            if (oddCount === 0 || evenCount === 0) {
+                return 0;
+            } if (oddCount > evenCount) {
+                return array.indexOf(evenWinner);
+            } if (oddCount < evenCount) {
+                return array.indexOf(oddWinner);
+            }
+
+        }
+              /*   I thought about going about this problem with alternative logic-
+                    could you provide feedback on if and how I could get this code
+                    to function? Thanks!! 
+
+                const array = test.split(" ");
+                let array2 = [];
+                let array3 = [];
+                for (let i = 0; i < array.length; i++) {
+                    if (array[i] % 2 === 0) {
+                        array2.push(array[i]);
+                    } if (array[i] % 2 != 0) {
+                        array3.push(array[i]);
+                    }
+                } if (array2 > array3) {
+                    let x = array3.slice(0);
+                    return (array.indexOf(x) + 1);
+                } else if (array3 > array2) {
+                    let y = array2.slice(0);
+                    return (array.indexOf(y) + 1);
+                } else if (array3 === null) {
+                    return 0;
+                }  */
+        
 
 /*
 2. **titleCase** Write a function that will convert a string into title case, given an optional 
@@ -28,3 +77,21 @@ argument is unused.
 		titleCase('THE WIND IN THE WILLOWS', 'The In') // should return: 'The Wind in the Willows'
         titleCase('the quick brown fox') // should return: 'The Quick Brown Fox'
 */
+        function titleCase(title, exceptions) {
+            title = title.toLowerCase().split(' ');
+            if(exceptions != undefined)
+            exceptions = exceptions.toLowerCase().split(' ')
+            finalTitle = [];
+            
+            for(word of title) {
+                if(exceptions != undefined && exceptions.includes(word) && finalTitle.length > 0){
+                    finalTitle.push(word);
+                }
+                else { 
+                    let firstLetter = word[0].toUpperCase();
+                    wordNoFirstLetter = word.slice(1)
+                    finalTitle.push(firstLetter + wordNoFirstLetter)
+                }
+            }
+            return finalTitle.join(' ')
+        }

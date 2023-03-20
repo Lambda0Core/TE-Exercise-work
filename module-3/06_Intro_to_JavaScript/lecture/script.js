@@ -4,14 +4,24 @@
 
 // Single line comment
 
+
 /**
  * Functions start with the word function.
  * They don't have a return type and the naming convention is camel-case.
  */
 function variables() {
   // Declares a variable where the value cannot be changed
+  const DAYS_PER_WEEK = 7;
+  console.log(`There are ${DAYS_PER_WEEK} days in a week`);
   // Declares a variable those value can be changed
+  let daysPerMonth = 30;
+  console.log(`There are roughly ${daysPerMonth} days in a month`)
   // Declares a variable that will always be an array
+  const WEEKDAYS = [
+    "Moonday", "Chewsday", "Wetnessday", "Turdsday", "Fryday", "SegaSaturnday", "Sonday"
+
+  ];
+  console.table(WEEKDAYS)
 }
 
 /**
@@ -74,10 +84,15 @@ function objects() {
   };
 
   // Log the object
-
+  console.table(person)
   // Log the first and last name
-
+  console.log(person.toString());
   // Log each employee
+  for (let i = 0; i < person.length; i++ ){
+    console.log(`Employee ${i + 1} is ${person.employees[i]}`)
+
+    console.table(person.employees)
+  }
 }
 
 /*
