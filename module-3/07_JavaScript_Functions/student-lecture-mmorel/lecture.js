@@ -26,10 +26,10 @@ function arrayFunctions()
   // Split a string into an array
     let phrase1 = "When in the course of human events it becomes necessary for one people to dissolve the political bands";
     // split here...
-
-    let words;
-    // call printArray here...
     
+    let words = phrase1.split(" ");
+    // call printArray here...
+    printArray(words);
 
     // array.slice gets a "sub-array" but does not modify the original
     // array.slice(startElement, nonInclusiveEndElement)
@@ -44,6 +44,7 @@ function arrayFunctions()
     // array.splice(start, count, newelements…)
     console.log('*** ***\r\narray.splice gets a "sub-array" and removes those elements.' );
     // splice here...
+    let arr = words.slice(3,7);
     printArray(arr);
     printArray(words);
 
@@ -140,15 +141,17 @@ function doubleIt(n){
  */
 // print it...
 
-
+console.log(`doubleIt is a type of ${typeof (doubleit)}`);
+console.log(doubleIt.name);
 
 /************************
  * Now that the function is defined, we can actually "assign" that function to 
  * another variable.
  */
-
+let f = doubleIt;
 
 // Call the function doubleIt
+console.log(doubleIt(4));
 
 
 
@@ -239,6 +242,9 @@ let people = [
 
 // List all the people using forEach
 function listAllPeople(people) {
+  people.ForEach(element => {
+    console.log(`${element.name} ${element.age}`);
+  })
 }
 
 // Filter people by height or age
