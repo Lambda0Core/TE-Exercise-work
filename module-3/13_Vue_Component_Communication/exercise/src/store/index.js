@@ -2,14 +2,13 @@ import Vue from "vue";
 import Vuex from "vuex";
 
 Vue.use(Vuex);
-
 export default new Vuex.Store({
   state: {books: [
     {
       title: "Kafka on the Shore",
       author: "Haruki Murakami",
       read: false,
-      isbn: "9781400079278"
+      isbn: "9781784877989"
     },
     {
       title: "The Girl With All the Gifts",
@@ -40,5 +39,7 @@ export default new Vuex.Store({
   },
   actions: {},
   modules: {},
+  // Strict should not be used in production code. It is used here as a
+  // learning aid to warn you if state is modified without using a mutation.
   strict: true
 });

@@ -1,7 +1,7 @@
 <template>
   <div class="card" v-bind:class="{read:book.read}">
       <div class="book-title">{{book.title}}</div>
-    <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" />
+    <img class="book-image" v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" />
     <div class="book-author">{{book.author}}</div>
     <button class="mark-unread" v-on:click.prevent="markReadUnread" v-if="book.read">Mark Unread</button>
      <button class="mark-read" v-on:click.prevent="markReadUnread" v-if="!book.read">Mark Read</button>     
@@ -37,6 +37,10 @@ export default {
 }
 
 .card .book-title {
+    font-size: 1.5rem;
+}
+
+.card .book-image {
     font-size: 1.5rem;
 }
 

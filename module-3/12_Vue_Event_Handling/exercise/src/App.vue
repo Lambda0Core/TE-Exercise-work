@@ -1,16 +1,28 @@
 <template>
   <div id="app">
-    <user-list></user-list>
+    <h1>Reading List</h1>
+    <reading-list />
   </div>
 </template>
 
 <script>
-import UserList from "./components/UserList.vue";
+import ReadingList from './components/ReadingList.vue';
 
 export default {
-  name: "app",
+  name: 'app',
   components: {
-    UserList
+    ReadingList
   }
-};
+}
 </script>
+
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin: 60px;
+}
+</style>

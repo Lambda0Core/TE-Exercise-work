@@ -1,82 +1,46 @@
 <template>
-  <div>
-    <a
-      id="show-form-button"
-      href="#"
-      v-if="showForm === false"
-      v-on:click.prevent="showForm = true"
-    >Show Form</a>
-    <a
-      id="hide-form-button"
-      href="#"
-      v-if="showForm === true"
-      v-on:click.prevent="showForm = false"
-    >Hide Form</a>
-
-    <form v-on:submit.prevent="addNewBook" v-if="showForm === true">
-      <div class="new-book-form">
-        <label for="title-input">Title:</label>
-        <input id="title-input" type="text" v-model="newBook.title" />
-      </div>
-      <div class="new-book-form">
-        <label for="author-input">Author:</label>
-        <input id="author-input" type="text" v-model="newBook.author" />
-      </div>
-      <div class="new-book-form">
-        <label for="isbn-input">ISBN:</label>
-        <input id="isbn-input" type="text" v-model="newBook.isbn" />
-      </div>
-      <input type="submit" value="Save" />
-      <input type="button" value="Cancel" v-on:click.prevent="resetForm" />
-    </form>
-  </div>
+  <form class="new-book-form" v-on:submit.prevent="saveBook">
+    <input class="title-input" type="text" placeholder="Title" v-model="book.title" />
+    <input class="author-input" type="text" placeholder="Author" v-model="book.author" />
+    <input class="isbn-input" type="text" placeholder="ISBN" v-model="book.isbn" />
+    <button>Save</button>
+  </form>
 </template>
 
 <script>
 export default {
-  name: "add-book",
-  data() {
-    return {
-      showForm: false,
-      newBook: {
-        read: false,
-      },
-    };
-  },
-  methods: {
-    addNewBook() {
-      this.$store.commit("ADD_BOOK", this.newBook)
-      this.resetForm();
+    name: "new-book-form",
+    data() {
+        return {
+            book: {
+                title: '',
+                author: '',
+                read: false,
+                isbn: ''
+            }
+        }
     },
-    resetForm() {
-      this.showForm = false;
-      this.newBook = {};
-    },
-  },
-};
+    methods: {
+        saveBook() {
+            this.$store.commit('SAVE_BOOK', this.book);
+            this.book = {
+                title: '',
+                author: '',
+                read: false,
+                isbn: ''
+            };
+        }
+    }
+}
 </script>
 
 <style>
-div.new-book-form {
-  margin-top: 10px;
+.new-book-form {
+    margin: 20px;
 }
-div.new-book-form > label {
-  display: block;
-}
-div.new-book-form > input,
-div.new-book-form > select {
-  height: 30px;
-  width: 300px;
-}
-div.new-book-form > textarea {
-  height: 60px;
-  width: 300px;
-}
-form > input[type="button"] {
-  width: 100px;
-}
-form > input[type="submit"] {
-  width: 100px;
-  margin-right: 10px;
+
+.new-book-form input, .new-book-form button {
+    margin: 10px;
+    font-size: 1rem;
 }
 </style>
