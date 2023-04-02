@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import BookCard from '../components/BookCard.vue';
+import BookCard from '@/components/BookCard.vue';
 
 export default {
     name: 'reading-list',
