@@ -5,9 +5,7 @@
       <input type="text" v-model="topic.title" />
     </div>
     <div class="actions">
-      <router-link to="/">
         <button type="submit" v-on:click="saveTopic()">Save Document</button>
-      </router-link>
     </div>
   </form>
 </template>
