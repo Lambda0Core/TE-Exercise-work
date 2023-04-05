@@ -1,10 +1,9 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link>&nbsp;|&nbsp;
-      <router-link to="/add-topic">Add Topic</router-link>
+      <router-link to="/">Home</router-link>
     </div>
-    <router-view />
+    <router-view/>
   </div>
 </template>
 
@@ -13,14 +12,12 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
   color: #2c3e50;
-  max-width: 800px;
-  margin: 0 auto;
 }
 
 #nav {
   padding: 30px;
-  text-align: center;
 }
 
 #nav a {

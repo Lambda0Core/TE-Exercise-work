@@ -1,51 +1,27 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import Home from '@/views/Home.vue';
-import Messages from '@/views/Messages.vue';
-import AddMessage from '@/views/AddMessage.vue';
-import AddTopic from '@/views/AddTopic.vue';
-import EditTopic from '@/views/EditTopic.vue';
-import NotFound from '@/views/NotFound.vue';
-import EditMessage from '@/views/EditMessage';
+import Vue from 'vue'; // Access the code for Vue
+import VueRouter from 'vue-router'; // Access the code for Vue Router
+import Home from '@/views/Home.vue'; // Access the code for Home.vue
+import Messages from '@/views/Messages.vue'; // Access the code for Messages.vue
+import TopicDetails from '@/components/TopicDetails';
 
 Vue.use(VueRouter);
 
-const routes = [
-  {
-    path: "/not-found",
-    name: "NotFound",
-    component: NotFound
-  },
+const routes = [ // Associate paths to components
   {
     path: '/',
     name: 'Home',
     component: Home
   },
   {
-    path: '/add-topic',
-    name: 'AddTopic',
-    component: AddTopic
-  },
-  {
-    path: '/edit-topic/:id',
-    name: 'EditTopic',
-    component: EditTopic
+    path: '/topics/:id',
+    name: 'topic',
+    component: TopicDetails
   },
   {
     path: '/:id',
     name: 'Messages',
     component: Messages
-  },
-  {
-    path: '/:topicId/add-message',
-    name: 'AddMessage',
-    component: AddMessage
-  },
-  {
-    path: '/:topicId/edit-message/:messageId',
-    name: 'EditMessage',
-    component: EditMessage
-  },
+  }
 ];
 
 const router = new VueRouter({
