@@ -11,7 +11,7 @@ export default {
   },
 
   add(message) {
-    return http.post(`/messages/`, message);
+    return http.post(`/messages`, message);
   },
 
   update(message) {
