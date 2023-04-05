@@ -18,7 +18,7 @@
 import messageService from "../services/MessageService";
 
 export default {
-  name: "update-message",
+  name: "create-message",
   props: ["topicId", "messageId"],
   data() {
     return {

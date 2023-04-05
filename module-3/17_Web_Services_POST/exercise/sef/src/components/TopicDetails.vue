@@ -12,8 +12,9 @@
     >
       <h3 class="message-title">{{ message.title }}</h3>
       <p class="message-body">{{ message.messageText }}</p>
-      <router-link
+      <router-link>
         :to="{name: 'EditMessage', params: {topicId: $store.state.activeTopic.id, messageId: message.id} }"
+        tag="button"
         class="btnEditMessage"
       >Edit</router-link>
       <button class="btnDeleteMessage" v-on:click="deleteMessage(message.id)">Delete</button>
@@ -26,12 +27,24 @@ import topicService from "../services/TopicService.js";
 import messageService from "../services/MessageService.js";
 
 export default {
-  name: "topic-details",
+  name: 'topic-details',
   props: {
-    topicId: Number
+    'topicId': Number
+  },
+  data() {
+    return {
+      topic: {
+        id: 0,
+        title: '',
+        messages: []
+      },
+    }
   },
   methods: {
-    deleteMessage(id) {}
+    deleteMessage(id) {
+      messageService.delete(id)
+      this.$store.commit("DELETE_MESSAGE", id);
+    }
   },
   created() {
     topicService
@@ -41,7 +54,7 @@ export default {
       })
       .catch(error => {
         if (error.response.status == 404) {
-          this.$router.push({name: 'NotFound'});
+          this.$router.push("/not-found");
         }
       });
   }
@@ -107,30 +120,5 @@ a.addMessage:visited {
 }
 a.addMessage:hover {
   text-decoration: underline;
-}
-.btnEditMessage {
-  -webkit-appearance: button;
-  -webkit-writing-mode: horizontal-tb !important;
-  text-rendering: auto;
-  text-decoration: none;
-  color: buttontext;
-  letter-spacing: normal;
-  word-spacing: normal;
-  text-transform: none;
-  text-indent: 0px;
-  text-shadow: none;
-  display: inline-block;
-  text-align: center;
-  align-items: flex-start;
-  cursor: default;
-  background-color: buttonface;
-  box-sizing: border-box;
-  margin: 0em;
-  font: 400 13.3333px Arial;
-  padding: 1px 6px;
-  border-width: 2px;
-  border-style: outset;
-  border-color: buttonface;
-  border-image: initial;
 }
 </style>

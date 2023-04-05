@@ -24,7 +24,7 @@
         </tr>
       </tbody>
     </table>
-  </div>
+  </div> 
 </template>
 
 <script>
@@ -38,7 +38,11 @@ export default {
         this.$store.commit("SET_TOPICS", response.data);
       });
     },
-    deleteTopic(id) {}
+    deleteTopic(id) {
+      topicService.delete(id)
+      topicService.list();
+      this.getTopics();
+    }
   },
   created() {
     this.getTopics();

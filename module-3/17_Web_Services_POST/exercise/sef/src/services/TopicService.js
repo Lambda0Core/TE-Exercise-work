@@ -26,4 +26,6 @@ export default {
     return http.delete(`/topics/${ topic }`)
   }
 
+  
+
 }
