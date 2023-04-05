@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import TopicList from '../components/TopicList.vue';
+import TopicList from '@/components/TopicList.vue';
 
 export default {
   name: 'Home',

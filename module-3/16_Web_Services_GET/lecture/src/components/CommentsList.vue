@@ -1,5 +1,8 @@
 <template>
-  <div></div>
+  <div class="comment">
+    <h2>comment</h2>
+  <h3>{{ comment.author }}</h3>
+  </div>
 </template>
 
 <script>

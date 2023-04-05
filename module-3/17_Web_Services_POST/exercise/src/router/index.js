@@ -1,12 +1,12 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
-import Messages from '../views/Messages.vue';
-import AddMessage from '../views/AddMessage.vue';
-import AddTopic from '../views/AddTopic.vue';
-import EditTopic from '../views/EditTopic.vue';
-import NotFound from '../views/NotFound.vue';
-import EditMessage from '../views/EditMessage';
+import Home from '@/views/Home.vue';
+import Messages from '@/views/Messages.vue';
+import AddMessage from '@/views/AddMessage.vue';
+import AddTopic from '@/views/AddTopic.vue';
+import EditTopic from '@/views/EditTopic.vue';
+import NotFound from '@/views/NotFound.vue';
+import EditMessage from '@/views/EditMessage';
 
 Vue.use(VueRouter);
 

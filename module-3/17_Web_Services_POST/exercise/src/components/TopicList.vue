@@ -24,11 +24,11 @@
         </tr>
       </tbody>
     </table>
-  </div>
+  </div> 
 </template>
 
 <script>
-import topicService from "../services/TopicService.js";
+import topicService from "@/services/TopicService.js";
 
 export default {
   name: "topic-list",
@@ -38,7 +38,11 @@ export default {
         this.$store.commit("SET_TOPICS", response.data);
       });
     },
-    deleteTopic(id) {}
+    deleteTopic(id) {
+      topicService.delete(id)
+      topicService.list();
+      this.getTopics();
+    }
   },
   created() {
     this.getTopics();
