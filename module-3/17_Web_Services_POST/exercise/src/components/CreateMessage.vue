@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import messageService from "../services/MessageService";
+import messageService from "../services/MessageService.js";
 
 export default {
   name: "create-message",

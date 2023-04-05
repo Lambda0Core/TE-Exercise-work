@@ -12,7 +12,7 @@
     >
       <h3 class="message-title">{{ message.title }}</h3>
       <p class="message-body">{{ message.messageText }}</p>
-      <router-link
+      <router-link>
         :to="{name: 'EditMessage', params: {topicId: $store.state.activeTopic.id, messageId: message.id} }"
         tag="button"
         class="btnEditMessage"
@@ -23,13 +23,22 @@
 </template>
 
 <script>
-import topicService from "@/services/TopicService.js";
-import messageService from "@/services/MessageService.js";
+import topicService from "../services/TopicService.js";
+import messageService from "../services/MessageService.js";
 
 export default {
-  name: "topic-details",
+  name: 'topic-details',
   props: {
-    topicId: Number
+    'topicId': Number
+  },
+  data() {
+    return {
+      topic: {
+        id: 0,
+        title: '',
+        messages: []
+      },
+    }
   },
   methods: {
     deleteMessage(id) {

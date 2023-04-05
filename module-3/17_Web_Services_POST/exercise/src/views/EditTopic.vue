@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import UpdateTopic from "@/components/UpdateTopic";
+import UpdateTopic from "../components/UpdateTopic";
 
 export default {
   components: {

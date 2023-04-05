@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import CreateMessage from "@/components/CreateMessage";
+import CreateMessage from "../components/CreateMessage";
 
 export default {
   components: {

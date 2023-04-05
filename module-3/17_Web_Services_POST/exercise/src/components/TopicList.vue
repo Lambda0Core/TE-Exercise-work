@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import topicService from "@/services/TopicService.js";
+import topicService from "../services/TopicService.js";
 
 export default {
   name: "topic-list",
