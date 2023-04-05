@@ -1,35 +1,59 @@
 <template>
   <div class="topic-list">
-    <div v-for="topic in topics" v-bind:key="topic.id" class="topic">
-      <router-link v-bind:to="{ name: 'topic', params: { id: topic.id } }">
-          {{ topic.title }}
-        </router-link>
-    </div>
-  </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Topic</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="topic in this.$store.state.topics" v-bind:key="topic.id">
+          <td width="80%">
+            <router-link
+              v-bind:to="{ name: 'Messages', params: { id: topic.id } }"
+            >{{ topic.title }}</router-link>
+          </td>
+          <td>
+            <router-link :to="{ name: 'EditTopic', params: {id: topic.id} }">Edit</router-link>
+          </td>
+          <td>
+            <a href="#" v-on:click="deleteTopic(topic.id)">Delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div> 
 </template>
 
 <script>
-import TopicService from '../services/TopicService'
+import topicService from "@/services/TopicService.js";
+
 export default {
-  name: 'topic-list',
-  data() {
-    return {
-      topics: []
-    };
+  name: "topic-list",
+  methods: {
+    getTopics() {
+      topicService.list().then(response => {
+        this.$store.commit("SET_TOPICS", response.data);
+      });
+    },
+    deleteTopic(id) {
+      topicService.delete(id)
+      topicService.list();
+      this.getTopics();
+    }
   },
   created() {
-    TopicService.getTopics().then(response => {
-      this.topics = response.data;
-    });
+    this.getTopics();
   }
 };
 </script>
 
 <style>
 .topic-list {
-  padding: 20px 20px;
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 800px;
 }
 .topic {
   font-size: 24px;
@@ -38,5 +62,25 @@ export default {
 }
 .topic:last-child {
   border: 0px;
+}
+table {
+  text-align: left;
+  width: 800px;
+  border-collapse: collapse;
+}
+td {
+  padding: 4px;
+}
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.topic-list a:link,
+.topic-list a:visited {
+  color: blue;
+  text-decoration: none;
+}
+.topic-list a:hover {
+  text-decoration: underline;
 }
 </style>
